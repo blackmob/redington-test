@@ -21,14 +21,14 @@ public class EitherCalculationHandler : IRequestHandler<EitherCalculationCommand
     public async Task<CalculationResultPayload> Handle(EitherCalculationCommand request,
         CancellationToken cancellationToken)
     {
-        _logger.LogInformation("Calculating probability for A: {ProbabilityA} and B: {ProbabilityB}",
+        _logger.LogInformation("Calculating probability for A: {ProbabilityA} and B: {ProbabilityB} using the Either method",
             request.ProbabilityA, request.ProbabilityB);
 
         var result =
             await _service.CalculateProbabilityAsync(new ProbabilityParams(request.ProbabilityA,
                 request.ProbabilityB));
 
-        _logger.LogInformation("Calculation result: {Result}", result);
+        _logger.LogInformation("Calculation result: {Result} for the Either method", result);
 
         return await Task.FromResult(new CalculationResultPayload(result));
     }

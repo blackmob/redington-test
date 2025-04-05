@@ -8,6 +8,11 @@ using System.Diagnostics.CodeAnalysis;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure logging
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+builder.Logging.AddFile("Logs/app-{Date}.txt");
+
 builder.Services
     .AddEndpointsApiExplorer()
     .AddSwaggerGen()

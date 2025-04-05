@@ -22,14 +22,14 @@ public class CombinedWithCalculationHandler : IRequestHandler<CombinedWithCalcul
     public async Task<CalculationResultPayload> Handle(CombinedWithCalculationCommand request,
         CancellationToken cancellationToken)
     {
-        _logger.LogInformation("Calculating probability for A: {ProbabilityA} and B: {ProbabilityB}",
+        _logger.LogInformation("Calculating probability for A: {ProbabilityA} and B: {ProbabilityB} using the CombinedWith method",
             request.ProbabilityA, request.ProbabilityB);
 
         var result =
             await _service.CalculateProbabilityAsync(new ProbabilityParams(request.ProbabilityA,
                 request.ProbabilityB));
 
-        _logger.LogInformation("Calculation result: {Result}", result);
+        _logger.LogInformation("Calculation result: {Result} for the CombinedWith method", result);
 
         return await Task.FromResult(new CalculationResultPayload(result));
     }
