@@ -1,5 +1,4 @@
-﻿using FluentValidation;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using Moq;
 using Redington.ProbabilityCalculator.Core.Commands;
 using Redington.ProbabilityCalculator.Core.Handlers;
@@ -10,8 +9,8 @@ namespace Redington.ProbabilityCalculator.Tests.Handlers;
 
 public class CombinedWithCalculationHandlerTest
 {
-    private readonly Mock<ILogger<CombinedWithCalculationHandler>> _loggerMock;
     private readonly Mock<ICombinedWithCalculatorService> _calculatorMock;
+    private readonly Mock<ILogger<CombinedWithCalculationHandler>> _loggerMock;
 
     public CombinedWithCalculationHandlerTest()
     {
