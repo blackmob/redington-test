@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace Redington.ProbabilityCalculator.Core.Commands;
 
 [ExcludeFromCodeCoverage]
-public class EitherCalculationCommand : IRequest<CalculationResultPayload>
+public class EitherCalculationCommand : IRequest<CalculationResultPayload>, ICalculationInput
 {
     public EitherCalculationCommand(double probabilityA, double probabilityB)
     {

@@ -21,7 +21,8 @@ public class EitherCalculationHandler : IRequestHandler<EitherCalculationCommand
     public async Task<CalculationResultPayload> Handle(EitherCalculationCommand request,
         CancellationToken cancellationToken)
     {
-        _logger.LogInformation("Calculating probability for A: {ProbabilityA} and B: {ProbabilityB} using the Either method",
+        _logger.LogInformation(
+            "Calculating probability for A: {ProbabilityA} and B: {ProbabilityB} using the Either method",
             request.ProbabilityA, request.ProbabilityB);
 
         var result =

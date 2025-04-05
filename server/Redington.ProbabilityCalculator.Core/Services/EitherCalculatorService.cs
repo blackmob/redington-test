@@ -13,13 +13,6 @@ public class EitherCalculatorService : IEitherCalculatorService
         _validator = validator ?? throw new ArgumentNullException(nameof(validator));
     }
 
-    [ExcludeFromCodeCoverage]
-    public async ValueTask DisposeAsync()
-    {
-        await ValueTask.CompletedTask;
-        GC.SuppressFinalize(this);
-    }
-
     public async Task<double> CalculateProbabilityAsync(IProbabilityParams probabilityParams)
     {
         var validationResult = await _validator.ValidateAsync(probabilityParams);
@@ -27,5 +20,12 @@ public class EitherCalculatorService : IEitherCalculatorService
 
         return probabilityParams.ProbabilityA + probabilityParams.ProbabilityB -
                (probabilityParams.ProbabilityA * probabilityParams.ProbabilityB);
+    }
+
+    [ExcludeFromCodeCoverage]
+    public async ValueTask DisposeAsync()
+    {
+        await ValueTask.CompletedTask;
+        GC.SuppressFinalize(this);
     }
 }
