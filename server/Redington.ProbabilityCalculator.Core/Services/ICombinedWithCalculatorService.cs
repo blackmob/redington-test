@@ -1,0 +1,3 @@
+namespace Redington.ProbabilityCalculator.Core.Services;
+
+public interface ICombinedWithCalculatorService : IProbabilityCalculatorService;

@@ -1,0 +1,58 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redington.ProbabilityCalculator", "Redington.ProbabilityCalculator\Redington.ProbabilityCalculator.csproj", "{A8D9D7A0-6E98-4E6F-A8E4-D9D91E1287F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redington.ProbabilityCalculator.Tests", "Redington.ProbabilityCalculator.Tests\Redington.ProbabilityCalculator.Tests.csproj", "{B9F9D7A1-7E98-5E6F-B8E4-E9D91E1287F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Redington.ProbabilityCalculator.Core", "Redington.ProbabilityCalculator.Core\Redington.ProbabilityCalculator.Core.csproj", "{894F13E2-B2BD-490A-951A-585374165F18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8D9D7A0-6E98-4E6F-A8E4-D9D91E1287F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8D9D7A0-6E98-4E6F-A8E4-D9D91E1287F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8D9D7A0-6E98-4E6F-A8E4-D9D91E1287F3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A8D9D7A0-6E98-4E6F-A8E4-D9D91E1287F3}.Debug|x64.Build.0 = Debug|Any CPU
+		{A8D9D7A0-6E98-4E6F-A8E4-D9D91E1287F3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A8D9D7A0-6E98-4E6F-A8E4-D9D91E1287F3}.Debug|x86.Build.0 = Debug|Any CPU
+		{A8D9D7A0-6E98-4E6F-A8E4-D9D91E1287F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8D9D7A0-6E98-4E6F-A8E4-D9D91E1287F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8D9D7A0-6E98-4E6F-A8E4-D9D91E1287F3}.Release|x64.ActiveCfg = Release|Any CPU
+		{A8D9D7A0-6E98-4E6F-A8E4-D9D91E1287F3}.Release|x64.Build.0 = Release|Any CPU
+		{A8D9D7A0-6E98-4E6F-A8E4-D9D91E1287F3}.Release|x86.ActiveCfg = Release|Any CPU
+		{A8D9D7A0-6E98-4E6F-A8E4-D9D91E1287F3}.Release|x86.Build.0 = Release|Any CPU
+		{B9F9D7A1-7E98-5E6F-B8E4-E9D91E1287F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9F9D7A1-7E98-5E6F-B8E4-E9D91E1287F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9F9D7A1-7E98-5E6F-B8E4-E9D91E1287F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9F9D7A1-7E98-5E6F-B8E4-E9D91E1287F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{894F13E2-B2BD-490A-951A-585374165F18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{894F13E2-B2BD-490A-951A-585374165F18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{894F13E2-B2BD-490A-951A-585374165F18}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{894F13E2-B2BD-490A-951A-585374165F18}.Debug|x64.Build.0 = Debug|Any CPU
+		{894F13E2-B2BD-490A-951A-585374165F18}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{894F13E2-B2BD-490A-951A-585374165F18}.Debug|x86.Build.0 = Debug|Any CPU
+		{894F13E2-B2BD-490A-951A-585374165F18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{894F13E2-B2BD-490A-951A-585374165F18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{894F13E2-B2BD-490A-951A-585374165F18}.Release|x64.ActiveCfg = Release|Any CPU
+		{894F13E2-B2BD-490A-951A-585374165F18}.Release|x64.Build.0 = Release|Any CPU
+		{894F13E2-B2BD-490A-951A-585374165F18}.Release|x86.ActiveCfg = Release|Any CPU
+		{894F13E2-B2BD-490A-951A-585374165F18}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A8D9D7A0-6E98-4E6F-A8E4-D9D91E1287F3} = {8D40F8DD-9B56-46F1-8961-E89B08E9B2B1}
+		{B9F9D7A1-7E98-5E6F-B8E4-E9D91E1287F4} = {8D40F8DD-9B56-46F1-8961-E89B08E9B2B1}
+		{894F13E2-B2BD-490A-951A-585374165F18} = {8D40F8DD-9B56-46F1-8961-E89B08E9B2B1}
+	EndGlobalSection
+EndGlobal
