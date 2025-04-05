@@ -1,4 +1,5 @@
 import './globals.css';
+
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -16,4 +17,4 @@ export default function RootLayout({
       <body>{children}</body>
     </html>
   );
-} 
+}

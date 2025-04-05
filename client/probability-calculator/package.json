@@ -3,26 +3,55 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
     "build": "next build",
+    "dev": "next dev --turbopack",
+    "prepare": "cd ../.. && husky client/probability-calculator/.husky",
     "start": "next start",
-    "lint": "next lint"
+    "validate": "concurrently pnpm:validate:build:* npm:test --group",
+    "validate:build:format": "pnpm validate:staged:format --write=false --check .",
+    "validate:build:lint": "pnpm validate:staged:lint --fix=false .",
+    "validate:build:types": "pnpm validate:staged:types",
+    "validate:staged:format": "prettier --ignore-path .gitignore --ignore-path /.eslintignore --ignore-unknown --cache --write",
+    "validate:staged:lint": "eslint --max-warnings 0 --fix --no-warn-ignored",
+    "validate:staged:types": "tsc -p tsconfig.json --noEmit --outDir node_modules/.cache"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "axios": "1.8.4",
     "next": "15.2.4",
-    "axios": "1.8.4"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@commitlint/cli": "19.5.0",
+    "@commitlint/config-conventional": "19.5.0",
+    "@commitlint/types": "19.5.0",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "@typescript-eslint/eslint-plugin": "8.26.0",
+    "concurrently": "9.0.1",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
-    "@eslint/eslintrc": "^3"
-  }
+    "eslint-config-prettier": "10.0.2",
+    "eslint-import-resolver-typescript": "3.8.3",
+    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-jest": "28.11.0",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "7.37.4",
+    "eslint-plugin-react-hooks": "5.2.0",
+    "eslint-plugin-simple-import-sort": "12.1.1",
+    "eslint-plugin-tailwindcss": "4.0.0-alpha.0",
+    "eslint-plugin-testing-library": "7.1.1",
+    "eslint-plugin-unused-imports": "4.1.4",
+    "husky": "9.1.6",
+    "prettier": "3.5.3",
+    "prettier-plugin-packagejson": "2.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@10.4.1"
 }

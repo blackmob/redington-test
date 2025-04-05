@@ -1,0 +1,11 @@
+﻿{
+  "bracketSpacing": true,
+  "insertPragma": false,
+  "objectWrap": "collapse",
+  "plugins": ["prettier-plugin-packagejson", "prettier-plugin-tailwindcss"],
+  "printWidth": 80,
+  "quoteProps": "as-needed",
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5"
+}

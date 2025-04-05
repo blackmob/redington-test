@@ -1,0 +1,3 @@
+echo "Commit message validation"
+cd ./client/probability-calculator
+npx commitlint --edit $1
