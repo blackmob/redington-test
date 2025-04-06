@@ -1,4 +1,12 @@
 ﻿{
+  "ignore": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/coverage/**",
+    "**/.next/**",
+    "**/.turbo/**"
+  ],
   "bracketSpacing": true,
   "insertPragma": false,
   "objectWrap": "collapse",

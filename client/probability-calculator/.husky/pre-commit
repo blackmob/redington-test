@@ -1,3 +1,0 @@
-echo "Perform pre-commit actions"
-cd client/probability-calculator
-npx lint-staged -v
