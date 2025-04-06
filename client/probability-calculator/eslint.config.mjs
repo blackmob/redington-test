@@ -40,7 +40,7 @@ const eslintConfig = [
         'error',
         { aspects: ['invalidHref', 'preferButton'] },
       ],
-      'prettier/prettier': 'error',
+      'prettier/prettier': ['error', { endOfLine: 'auto' }],
       'import/no-duplicates': 'off',
     },
   },
