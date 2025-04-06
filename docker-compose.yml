@@ -1,0 +1,35 @@
+
+services:
+  api:    
+    container_name: redington-probability-calculator
+    build:      
+      context: ./server
+      dockerfile: Dockerfile
+    networks: 
+      - backend  
+    ports:
+      - "8080:8080"
+    environment:
+      - OpenTelemetryConfiguration__UseTracingExporter=Console 
+      - OpenTelemetryConfiguration__UseMetricsExporter=Console 
+      - OpenTelemetryConfiguration__UseLogExporter=Console
+      - OpenTelemetryConfiguration__AzureMonitor__ConnectionString="your_connection_string" 
+    volumes:
+      - ./Logs:/app/Logs
+  web:    
+    container_name: redington-probability-calculator-ui    
+    build:      
+      context: ./client/probability-calculator
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - backend  
+    environment:
+      - CALCULATOR_API_URL=http://localhost:8080/
+    depends_on:
+      - api      
+
+networks:
+  backend:
+    name: redington-probability-calculator-network      

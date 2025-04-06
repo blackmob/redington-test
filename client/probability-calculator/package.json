@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "build:docker": "next build",
     "dev": "next dev --turbopack",
     "prepare": "cd ../.. && husky client/probability-calculator/.husky",
     "start": "next start",
