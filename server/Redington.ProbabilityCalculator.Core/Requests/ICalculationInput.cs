@@ -1,4 +1,4 @@
-namespace Redington.ProbabilityCalculator.Core.Commands;
+namespace Redington.ProbabilityCalculator.Core.Requests;
 
 public interface ICalculationInput
 {

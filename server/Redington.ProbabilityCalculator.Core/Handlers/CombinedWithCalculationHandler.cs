@@ -1,13 +1,13 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
-using Redington.ProbabilityCalculator.Core.Commands;
 using Redington.ProbabilityCalculator.Core.Models;
 using Redington.ProbabilityCalculator.Core.Payloads;
+using Redington.ProbabilityCalculator.Core.Requests;
 using Redington.ProbabilityCalculator.Core.Services;
 
 namespace Redington.ProbabilityCalculator.Core.Handlers;
 
-public class CombinedWithCalculationHandler : IRequestHandler<CombinedWithCalculationCommand, CalculationResultPayload>
+public class CombinedWithCalculationHandler : IRequestHandler<CombinedWithCalculationRequest, CalculationResultPayload>
 {
     private readonly ILogger<CombinedWithCalculationHandler> _logger;
     private readonly ICombinedWithCalculatorService _service;
@@ -19,7 +19,7 @@ public class CombinedWithCalculationHandler : IRequestHandler<CombinedWithCalcul
         _service = service;
     }
 
-    public async Task<CalculationResultPayload> Handle(CombinedWithCalculationCommand request,
+    public async Task<CalculationResultPayload> Handle(CombinedWithCalculationRequest request,
         CancellationToken cancellationToken)
     {
         _logger.LogInformation(

@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 using Moq;
-using Redington.ProbabilityCalculator.Core.Commands;
 using Redington.ProbabilityCalculator.Core.Handlers;
 using Redington.ProbabilityCalculator.Core.Models;
+using Redington.ProbabilityCalculator.Core.Requests;
 using Redington.ProbabilityCalculator.Core.Services;
 
 namespace Redington.ProbabilityCalculator.Tests.Handlers;
@@ -25,7 +25,7 @@ public class CombinedWithCalculationHandlerTest
         _calculatorMock.Setup(t => t.CalculateProbabilityAsync(It.IsAny<IProbabilityParams>())).ReturnsAsync(0.75);
 
         var handler = new CombinedWithCalculationHandler(_loggerMock.Object, _calculatorMock.Object);
-        var input = new CombinedWithCalculationCommand(0.5, 0.5);
+        var input = new CombinedWithCalculationRequest(0.5, 0.5);
 
         // Act
         var result = await handler.Handle(input, CancellationToken.None);

@@ -2,12 +2,10 @@
 
 import { getSettings } from '../../server/utils';
 
-type ProbabilityResponseWithStatus = {
-  data: ProbabilityResponse | null;
+export type ProbabilityResponseWithStatus = {
+  data: number | null;
   status: number;
 };
-
-type ProbabilityResponse = { result: number };
 
 export const probabilityFetcher = async (params: {
   probabilityA: number;
@@ -17,11 +15,10 @@ export const probabilityFetcher = async (params: {
   try {
     const { apiBaseUrl } = await getSettings();
 
-    const response = await axios.post<ProbabilityResponse>(apiBaseUrl, {
-      probabilityA: params.probabilityA,
-      probabilityB: params.probabilityB,
-      calculationType: params.calculationType,
-    });
+    const response = await axios.get<number>(
+      `${apiBaseUrl}calculate/${params.calculationType}/${params.probabilityA}/${params.probabilityB}`
+    );
+    console.log(response);
     return { data: response.data, status: 200 };
   } catch {
     return { data: null, status: 500 };

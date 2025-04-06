@@ -23,7 +23,8 @@ builder.Services
     .AddCustomHealthChecks()
     .AddCqrsMediatRServices()
     .AddServices()
-    .AddCoreServices(builder.Configuration);
+    .AddCoreServices(builder.Configuration)
+    .AddOpenTelemetryProviders(builder.Configuration, builder.Logging, "Redington.ProbabilityCalculator");
 
 var app = builder.Build();
 
