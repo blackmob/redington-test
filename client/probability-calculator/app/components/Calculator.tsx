@@ -69,12 +69,16 @@ export default function Calculator() {
               min: { value: 0, message: 'Probability must be between 0 and 1' },
               max: { value: 1, message: 'Probability must be between 0 and 1' },
             })}
+            data-testid="probabilityA"
             type="number"
             step="0.01"
             className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-blue-500"
           />
           {errors.probabilityA && (
-            <div className="mt-4 rounded border border-red-400 bg-red-100 p-3 text-red-700">
+            <div
+              data-testid="probabilityA-error"
+              className="mt-4 rounded border border-red-400 bg-red-100 p-3 text-red-700"
+            >
               {errors.probabilityA?.message}
             </div>
           )}
@@ -92,12 +96,16 @@ export default function Calculator() {
               min: { value: 0, message: 'Probability must be between 0 and 1' },
               max: { value: 1, message: 'Probability must be between 0 and 1' },
             })}
+            data-testid="probabilityB"
             type="number"
             step="0.01"
             className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-blue-500"
           />
           {errors.probabilityB && (
-            <div className="mt-4 rounded border border-red-400 bg-red-100 p-3 text-red-700">
+            <div
+              data-testid="probabilityB-error"
+              className="mt-4 rounded border border-red-400 bg-red-100 p-3 text-red-700"
+            >
               {errors.probabilityB?.message}
             </div>
           )}
@@ -113,7 +121,7 @@ export default function Calculator() {
             {...register('calculationType', {
               required: 'Calculation Type is required',
             })}
-            id="calculationType"
+            data-testid="calculationType"
             className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-blue-500"
           >
             <option value={'0'}>Combined With</option>
@@ -121,8 +129,11 @@ export default function Calculator() {
           </select>
         </div>
       </form>
-      {probability !== null && (
-        <div className="mt-4 rounded border border-green-400 bg-green-100 p-3 text-green-700">
+      {!!probability && (
+        <div
+          data-testid="probability"
+          className="mt-4 rounded border border-green-400 bg-green-100 p-3 text-green-700"
+        >
           Probability: {probability?.toFixed(4)}
           <span> ({((probability ?? 0) * 100).toFixed(2)}%)</span>
         </div>

@@ -425,3 +425,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 .next
+coverage
+[l|L]ogs
