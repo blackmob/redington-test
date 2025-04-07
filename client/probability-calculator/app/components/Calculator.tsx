@@ -1,7 +1,7 @@
 'use client';
-import { useMemo } from 'react';
+import { useEffect, useCallback, useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
-
+import { debounce } from 'lodash';
 import { useProbability } from '@/client/hooks/useProbability';
 
 type Inputs = {
@@ -9,6 +9,13 @@ type Inputs = {
   probabilityB: string;
   calculationType: string;
 };
+
+type CalculationParams = {
+  probabilityA: number;
+  probabilityB: number;
+  calculationType: number;
+  isValid: boolean;
+}
 
 export default function Calculator() {
   const {
@@ -24,6 +31,8 @@ export default function Calculator() {
       calculationType: '0',
     },
   });
+
+  const [calculationParams, setCalculationParams] = useState<CalculationParams>({probabilityA: 0, probabilityB: 0, calculationType: 0, isValid: true});
 
   const probabilityA = useWatch({
     name: 'probabilityA',
@@ -41,14 +50,21 @@ export default function Calculator() {
     exact: false,
   });
 
-  const calculationParams = useMemo(
-    () => ({
-      probabilityA: parseFloat(probabilityA),
-      probabilityB: parseFloat(probabilityB),
-      calculationType: parseInt(calculationType),
-      isValid: isValid,
-    }),
-    [probabilityA, probabilityB, calculationType, isValid]
+  useEffect(() => {
+    debouncedSetParams(probabilityA, probabilityB, calculationType, isValid);
+  }, [probabilityA, probabilityB, calculationType, isValid]);  
+
+  const debouncedSetParams = useCallback(
+    debounce((probabilityA: string, probabilityB: string, calculationType: string, isValid: boolean) => {
+      setCalculationParams(
+      {
+        probabilityA: parseFloat(probabilityA),
+        probabilityB: parseFloat(probabilityB),
+        calculationType: parseInt(calculationType),
+        isValid: isValid,
+    })}
+    , 500),
+    []
   );
 
   const { probability } = useProbability(calculationParams);
