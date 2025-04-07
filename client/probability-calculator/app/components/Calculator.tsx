@@ -1,7 +1,8 @@
 'use client';
-import { useEffect, useCallback, useState } from 'react';
-import { useForm, useWatch } from 'react-hook-form';
 import { debounce } from 'lodash';
+import { useCallback, useEffect, useState } from 'react';
+import { useForm, useWatch } from 'react-hook-form';
+
 import { useProbability } from '@/client/hooks/useProbability';
 
 type Inputs = {
@@ -15,7 +16,7 @@ type CalculationParams = {
   probabilityB: number;
   calculationType: number;
   isValid: boolean;
-}
+};
 
 export default function Calculator() {
   const {
@@ -32,7 +33,9 @@ export default function Calculator() {
     },
   });
 
-  const [calculationParams, setCalculationParams] = useState<CalculationParams>({probabilityA: 0, probabilityB: 0, calculationType: 0, isValid: true});
+  const [calculationParams, setCalculationParams] = useState<CalculationParams>(
+    { probabilityA: 0, probabilityB: 0, calculationType: 0, isValid: true }
+  );
 
   const probabilityA = useWatch({
     name: 'probabilityA',
@@ -52,18 +55,25 @@ export default function Calculator() {
 
   useEffect(() => {
     debouncedSetParams(probabilityA, probabilityB, calculationType, isValid);
-  }, [probabilityA, probabilityB, calculationType, isValid]);  
+  }, [probabilityA, probabilityB, calculationType, isValid]);
 
   const debouncedSetParams = useCallback(
-    debounce((probabilityA: string, probabilityB: string, calculationType: string, isValid: boolean) => {
-      setCalculationParams(
-      {
-        probabilityA: parseFloat(probabilityA),
-        probabilityB: parseFloat(probabilityB),
-        calculationType: parseInt(calculationType),
-        isValid: isValid,
-    })}
-    , 500),
+    debounce(
+      (
+        probabilityA: string,
+        probabilityB: string,
+        calculationType: string,
+        isValid: boolean
+      ) => {
+        setCalculationParams({
+          probabilityA: parseFloat(probabilityA),
+          probabilityB: parseFloat(probabilityB),
+          calculationType: parseInt(calculationType),
+          isValid: isValid,
+        });
+      },
+      500
+    ),
     []
   );
 
